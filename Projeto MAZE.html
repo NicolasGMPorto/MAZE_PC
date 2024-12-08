@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="images/Ícone do site.jpeg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;  
+            background-color: #111;
+            color: #fff; /* Cor do texto */
+            padding-bottom: 50px; /* Espaço para o rodapé */
+            padding-left: 20px; /* Margem esquerda */
+            padding-right: 20px; /* Margem direita */
+            image-rendering: pixelated;
+        }
+
+        header {
+            background-color: #000; /* Cor de fundo do cabeçalho */
+            padding: 20px 0; /* Espaçamento interno superior e inferior */
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0; /* Remover margem padrão */
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 30px; /* Espaçamento entre o cabeçalho e o menu */
+            margin-bottom: 30px;
+        }
+
+        nav ul {
+            list-style-type: none; /* Remove os marcadores de lista */
+            padding: 0;
+        }
+
+        nav li {
+            display: inline-block; /* Exibir os itens de menu na mesma linha */
+            margin: 0 20px; /* Espaçamento horizontal entre os itens de menu */
+        }
+
+        nav a {
+            color: #fff; /* Cor do texto do link */
+            text-decoration: none; /* Remover sublinhado padrão */
+            font-size: 20px; /* Tamanho da fonte */
+            padding: 10px 20px; /* Espaçamento interno */
+            border: 2px solid #007bff; /* Borda com cor azul */
+            border-radius: 10px; /* Bordas arredondadas */
+            transition: background-color 0.3s, color 0.3s; /* Transição suave de cor ao passar o mouse */
+        }
+
+        nav a:hover {
+            background-color: #007bff; /* Cor de fundo ao passar o mouse */
+            color: #111; /* Cor do texto ao passar o mouse */
+        }
+        .container{
+            background-image: url("images/Outros\ itens/capa.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50%;
+            height: 300vh;
+            width: 100%;
+        }
+        .names{
+            margin: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: x-large;
+        }
+
+        /* Estilo para a opção oculta */
+        #opcao-secreta {
+            display: none; /* Inicialmente oculta */
+            color: #fff; /* Cor do texto do link */
+            text-decoration: none; /* Remover sublinhado padrão */
+            font-size: 20px; /* Tamanho da fonte */
+            padding: 10px 20px; /* Espaçamento interno */
+            border: 2px solid #007bff; /* Borda com cor azul */
+            border-radius: 10px; /* Bordas arredondadas */
+            transition: background-color 0.3s, color 0.3s; /* Transição suave de cor ao passar o mouse */
+        }
+
+        /* Estilo para mostrar gradualmente a opção */
+        .aparecer {
+            animation: aparecer 1s forwards; /* Animar a opacidade */
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0; /* Começa com opacidade 0 */
+            }
+            to {
+                opacity: 1; /* Termina com opacidade 1 */
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <audio autoplay loop style="display: none;">
+        <source src="musics/OST 2 - Em busca da salvação (versão do site).mp3" type="audio/mpeg">
+    </audio>
+    <header>
+        <h1 id="titulo">MAZE</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="personagens.html">Personagens</a></li>
+            <li><a href="ost.html">OST</a></li>
+            <li><a href="extras.html">Extras</a></li>
+            <li><a href="lore.html">Lore</a></li>
+            <li><a href="secret.html" id="opcao-secreta">???</a></li> <!-- Opção oculta inicialmente -->
+        </ul>
+    </nav>
+    
+    <div class="container"></div>
+    <br>
+    <br>
+    <center>
+    <div class="names">
+        Projeto desenvolvido por Eduardo Enrique e Nicolas Gabriel - 2A Info
+    </div>
+    </center>
+
+    <script>
+        var contadorCliques = 0;
+
+        // Função para contar os cliques no título "MAZE"
+        document.getElementById("titulo").addEventListener("click", function() {
+            contadorCliques++;
+            
+            // Verifica se atingiu 10 cliques
+            if (contadorCliques >= 10) {
+                // Mostra a opção oculta gradualmente adicionando a classe "aparecer"
+                document.getElementById("opcao-secreta").style.display = "inline";
+                document.getElementById("opcao-secreta").classList.add("aparecer");
+            }
+        });
+    </script>
+</body>
+</html> 

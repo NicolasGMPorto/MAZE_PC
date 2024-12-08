@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recompensa - Minigame 4</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .word1 {
+      font-size: 36px;
+      text-shadow: 0 0 10px white;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeIn 5s ease-in-out forwards;
+    }
+    .word2 {
+      font-size: 36px;
+      text-shadow: 0 0 10px white;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeIn 8s ease-in-out forwards;
+    }
+
+    .big-word {
+      font-size: 100px;
+      text-shadow: 0 0 10px yellow;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeIn 10s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    button {
+      background-color: darkblue;
+      color: white;
+      text-shadow: 0 0 10px white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      animation: fadeIn 15s ease-in-out forwards;
+    }
+    .button-container {
+      margin-top: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <audio autoplay loop style="display: none;">
+    <source src="../musics/OST 6 - Omagah, Códigos!.mp3" type="audio/mpeg">
+</audio>
+
+  <h1 class="big-word">5</h1>
+  <h1 class="word1">Megalochaotic</h1>
+  <div class="button-container">
+    <div class="button-container">
+        <button onclick="voltarAoPrincipal()">Voltar</button>
+      </div>
+  <script>
+    function voltarAoPrincipal() {
+      window.location.href = "../secret.html"; // Substitua "pagina_principal.html" pelo caminho da sua página principal
+    }
+</script>
+</body>
+</html>

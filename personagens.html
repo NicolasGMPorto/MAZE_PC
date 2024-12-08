@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="images/Ícone do site.jpeg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hall dos personagens</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            image-rendering: pixelated;
+            position: relative; /* Para posicionar o botão de voltar */
+            text-align: center;
+        }
+
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 800px;
+            padding-left: -80%;
+            padding-top: 20%;
+            padding-bottom: 10%;
+           align-items: center;
+           justify-content: center; /* Centralizar horizontalmente */
+        }
+
+        .conquista {
+            width: calc(80% - 10px);
+            background-color: #222;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            margin-top: 5%;
+        }
+
+        .conquista-img {
+            flex: 0 0 100px;
+            margin-right: 0px;
+            width: 20%;
+        }
+
+        .conquista-texto {
+            flex: 1;
+        }
+
+        .conquista-titulo {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .conquista-descricao {
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 5px;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        header {
+            background-color: #000; /* Cor de fundo do cabeçalho */
+            padding: 20px 0; /* Espaçamento interno superior e inferior */
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            top:0
+        }
+
+        header h1 {
+            margin: 0; /* Remover margem padrão */
+            color: #fff; /* Cor do texto branco */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona sombreamento ao texto */
+        }
+    </style>
+</head>
+<body>
+
+    <audio autoplay loop style="display: none;">
+        <source src="musics/OST 3 - Personagens.aac" type="audio/mpeg">
+    </audio>
+
+        <header>
+            <a href="Projeto MAZE.html"> <div class="back-button">&#8592;</div></a>
+            <h1 class="header">Hall dos personagens</h1>
+        </header>
+
+<div class="galeria">
+    <div class="conquista">
+        <img src="images/Personagens/Prota Model.jpg" alt="Conquista 1" class="conquista-img">
+        <div class="conquista-texto">
+            <div class="conquista-titulo">Arlo</div>
+            <div class="conquista-descricao">Com 20 anos, ele é da geração SS, que é a segunda geração que veio do espaço, filho de um engenheiro quântico e de uma segurança da nave
+            ele aprendeu sobre a Terra desde criança, e quer salvá-la a qualquer custo, algumas de suas curiosidades são que ele gosta de comer pão de ovo com sorvete, que seu jogo favorito é 
+            mainecrefiti, que seu hobbie favorito é fazer viagens intergalácticas e tomar banho de estrela polar<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="conquista">
+        <img src="images/Personagens/Boros Model.jpg" alt="Conquista 2" class="conquista-img">
+        <div class="conquista-texto">
+            <div class="conquista-titulo">Boros</div>
+            <div class="conquista-descricao">Com 42 anos, ele é o atual líder da humanidade, filho de um dos oficiais da terceira guerra, buscou desde cedo defender os mais fracos, 
+                sendo reconhecido pelo governo mundial na época, atualmente, ele estuda métodos para salvar a Terra e reconquistar as tecnologias do passado, além disso, usa duas meias diferentes,
+                uma verde e outra amarela, dizendo que é porque gostava do Brasil nos seus dias de glória, além disso, ele é bastante fã do número <b>20</b>
+            </div>
+        </div>
+    </div>
+        <script>
+    // JavaScript para destacar as conquistas ao passar o mouse
+    const conquistas = document.querySelectorAll('.conquista');
+
+    conquistas.forEach(conquista => {
+        conquista.addEventListener('mouseover', () => {
+            conquista.style.opacity = '0.7';
+        });
+
+        conquista.addEventListener('mouseout', () => {
+            conquista.style.opacity = '1';
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+    // Seleciona todas as conquistas
+    const conquistas = document.querySelectorAll('.conquista');
+
+    // Adiciona um evento de clique para cada conquista
+    conquistas.forEach(conquista => {
+        // Seleciona o carrossel dentro da conquista
+        const carrossel = conquista.querySelector('.carrossel');
+        // Inicializa o índice atual da imagem como 0
+        let indiceAtual = 0;
+
+        // Adiciona um evento de clique para o carrossel
+        carrossel.addEventListener('click', function () {
+            // Incrementa o índice atual
+            indiceAtual++;
+
+            // Verifica se o índice ultrapassou o número de imagens
+            if (indiceAtual >= carrossel.children.length) {
+                // Volta ao início do carrossel
+                indiceAtual = 0;
+            }
+
+            // Oculta todas as imagens
+            carrossel.querySelectorAll('img').forEach(img => {
+                img.style.display = 'none';
+            });
+
+            // Exibe a próxima imagem
+            carrossel.children[indiceAtual].style.display = 'block';
+        });
+    });
+});
+    
+    </script>
+
+</body>
+</html>

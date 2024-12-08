@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mecânicas - Tetris</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header, .footer {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .trophy, .goal {
+        background-color: #ecf0f1;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+        transition: transform 0.2s;
+    }
+
+    .trophy:hover, .goal:hover {
+        transform: translateY(-10px);
+    }
+
+    .trophy img, .goal img {
+        width: 100%;
+        border-bottom: 5px solid #2980b9;
+    }
+
+    .info {
+        padding: 20px;
+    }
+
+    .info h3 {
+        margin: 10px 0;
+        color: #2980b9;
+    }
+
+    .info p {
+        margin: 10px 0;
+        color: #7f8c8d;
+    }
+</style>
+</head>
+<body>
+
+    <audio autoplay loop style="display: none;">
+        <source src="../musics/OST 5 - Mecânicas.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="header">
+        <h3>Jogo Baseado em Tetris</h3>
+    </div>
+
+    <div class="container">
+        <div class="trophy">
+            <div class="info">
+                <h3>Objetivo</h3>
+                <p>Seu objetivo é formar linhas horizontais usando as peças que caem, quando você completa uma linha, você ganha 10 pontos, seu objetivo é conseguir 150 pontos sem deixar a sua pilha de peças chegar no topo da tela</p>
+            </div>
+        </div>
+        <div class="trophy">
+            <div class="info">
+                <h3>Vidas</h3>
+                <p>Se morrer, o jogo é resetado</p>
+            </div>
+        </div>
+        <div class="trophy">
+            <div class="info">
+                <h3>Dica</h3>
+                <p>Olhe para as próximas peças que estão vindo no lado direito, isso te permite se planejar melhor e controlar o jogo</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="info">
+            <h3>Controles</h3>
+            <p>Seta pra cima: Mudar a posição da peça atual <br> Seta pros lados: Controlar onde a peça vai cair <br> Seta pra baixo: Acelerar a velocidade de queda das peças</p>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function(){
+            window.location.href = "Minigame4.html";
+        }, 15000); // 15 segundos em milissegundos
+    </script>
+
+</body>
+</html>

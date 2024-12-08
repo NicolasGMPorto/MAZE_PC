@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mecânicas - Pacman</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header, .footer {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .trophy, .goal {
+        background-color: #ecf0f1;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+        transition: transform 0.2s;
+    }
+
+    .trophy:hover, .goal:hover {
+        transform: translateY(-10px);
+    }
+
+    .trophy img, .goal img {
+        width: 100%;
+        border-bottom: 5px solid #2980b9;
+    }
+
+    .info {
+        padding: 20px;
+    }
+
+    .info h3 {
+        margin: 10px 0;
+        color: #2980b9;
+    }
+
+    .info p {
+        margin: 10px 0;
+        color: #7f8c8d;
+    }
+</style>
+</head>
+<body>
+
+    <audio autoplay loop style="display: none;">
+        <source src="../musics/OST 5 - Mecânicas.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="header">
+        <h3>Jogo Baseado em Pacman</h3>
+    </div>
+
+    <div class="container">
+        <div class="trophy">
+            <div class="info">
+                <h3>Velocidade de movimento</h3>
+                <p>A velocidade dos fantasmas é apenas metade da do Pacman</p>
+            </div>
+        </div>
+        <div class="trophy">
+            <div class="info">
+                <h3>Vidas</h3>
+                <p>O jogador pode morrer 2 vezes sem perder o progresso, quando ele morrer pela terceira vez, o jogo é reiniciado e o jogador perde o progresso atual</p>
+            </div>
+        </div>
+        <div class="trophy">
+            <div class="info">
+                <h3>Fantasmas</h3>
+                <p>Evite os fantasmas para não morrer</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="info">
+            <h3>Objetivo</h3>
+            <p>Coletar todos os pacdots para ganhar o desafio</p>
+            <h3>Controles</h3>
+            <p>Setinhas (cima, baixo, esquerda, e direita)</p>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function(){
+            window.location.href = "Minigame2.html";
+        }, 15000); // 15 segundos em milissegundos
+    </script>
+
+</body>
+</html>

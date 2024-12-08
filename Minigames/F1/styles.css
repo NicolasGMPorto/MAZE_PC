@@ -1,0 +1,53 @@
+body {
+    background-color: #000;
+    display: flex; /* Utiliza flexbox para centralizar */
+    flex-direction: column; /* Organiza os itens na vertical */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    margin: 0; /* Remove margens padrão */
+    position: relative; /* Permite o posicionamento absoluto dos filhos */
+}
+
+.legendas {
+    position: absolute; /* Permite que a legenda seja posicionada com precisão */
+    bottom: 20px; /* Mantém a posição em relação à parte inferior */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta a centralização */
+    max-width: 75%; /* Limita a largura da legenda a 75% da largura da tela */
+    text-align: center; /* Centraliza o texto */
+    color: #FFF;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #FFF;
+    opacity: 0.5; /* Começa meio apagada */
+    transition: opacity 1s; /* Transição para o aumento de brilho */
+    word-wrap: break-word; /* Permite quebra de palavra */
+}
+
+.nova-legenda {
+    position: absolute; /* Permite que a nova legenda seja posicionada com precisão */
+    bottom: 20%; /* Ajusta a posição da nova legenda */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta a centralização */
+    max-width: 90%; /* Limita a largura das novas legendas também */
+    text-align: center; /* Centraliza o texto */
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #000; /* Sombra preta */
+    display: none; /* Inicia oculta */
+    opacity: 0.5; /* Começa meio apagada */
+    transition: opacity 1s; /* Transição para o aumento de brilho */
+    word-wrap: break-word; /* Permite quebra de palavra */
+}
+
+#imagem {
+    display: block;
+    margin: 20px auto; /* Centraliza a imagem */
+    cursor: pointer; /* Muda o cursor ao passar sobre a imagem */
+    opacity: 0.5; /* Começa meio apagada */
+    transition: opacity 1s; /* Transição para o aumento de brilho */
+    max-width: 80%; /* Mantém a imagem responsiva */
+    max-height: 80vh; /* Limita a altura da imagem para 80% da altura da tela */
+}

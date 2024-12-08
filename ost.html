@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="images/Ícone do site.jpeg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OST do jogo</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            image-rendering: pixelated;
+            position: relative; /* Para posicionar o botão de voltar */
+            text-align: center;
+        }
+
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 800px;
+            padding-left: -80%;
+            padding-top: 130%;
+            margin-bottom: 5%;
+           align-items: center;
+           justify-content: center; /* Centralizar horizontalmente */
+        }
+
+        .conquista {
+            width: calc(80% - 10px);
+            background-color: #222;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            margin-top: 5%;
+        }
+
+        .conquista-img {
+            flex: 0 0 100px;
+            margin-right: 0px;
+            width: 20%;
+        }
+
+        .conquista-texto {
+            flex: 1;
+        }
+
+        .conquista-titulo {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: -7px;
+        }
+
+        .conquista-descricao {
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 5px;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        header {
+            background-color: #000; /* Cor de fundo do cabeçalho */
+            padding: 20px 0; /* Espaçamento interno superior e inferior */
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            top:0
+        }
+
+        header h1 {
+            margin: 0; /* Remover margem padrão */
+            color: #fff; /* Cor do texto branco */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona sombreamento ao texto */
+        }
+    </style>
+</head>
+<body>
+        <header>
+            <a href="Projeto MAZE.html"> <div class="back-button">&#8592;</div></a>
+            <h1 class="header">OST</h1>
+        </header>
+
+<div class="galeria">
+    <div class="conquista">
+        <audio src="musics/OST 1 - Ainda há esperança (mp3cut.net).mp3" controls class="conquista-audio"></audio>
+        <div class="conquista-texto">
+            <div class="conquista-titulo">OST 1- Ainda há esperança</div>
+            </div>
+        </div>
+
+    <div class="conquista">
+        <audio src="musics/Ost 2 - Em busca da salvação.mp3" controls class="conquista-audio"></audio>
+        <div class="conquista-texto">
+            <div class="conquista-titulo">OST 2- Em busca da salvação</div>
+        </div>
+    </div>
+    <div class="conquista">
+        <audio src="musics/OST 2.1 - Versão antiga.mp3" controls class="conquista-audio"></audio>
+        <div class="conquista-texto">
+            <div class="conquista-titulo">OST 2.1 - Em busca da salvação (Versão antiga)</div>
+        </div>
+        </div>
+        <div class="conquista">
+            <audio src="musics/OST 3 - Personagens.aac" controls class="conquista-audio"></audio>
+            <div class="conquista-texto">
+                <div class="conquista-titulo">OST 3 - Personagens</div>
+            </div>
+            </div>
+            <div class="conquista">
+                <audio src="musics/OST 4 - Extras.aac" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 4 - Sobre</div>
+                </div>
+                </div>
+                <div class="conquista">
+                    <audio src="musics/OST 5 - Mecânicas.mp3" controls class="conquista-audio"></audio>
+                    <div class="conquista-texto">
+                        <div class="conquista-titulo">OST 5 - Mecânicas</div>
+                    </div>
+                    </div>
+                    <div class="conquista">
+                        <audio src="musics/OST 6 - Omagah, Códigos!.mp3" controls class="conquista-audio"></audio>
+                        <div class="conquista-texto">
+                            <div class="conquista-titulo">OST 6 - Omagah, Códigos! </div>
+                        </div>
+                        </div>
+                        <div class="conquista">
+                            <audio src="musics/OST 7 - Trough the woods.mpeg" controls class="conquista-audio"></audio>
+                            <div class="conquista-texto">
+                                <div class="conquista-titulo">OST 7 - Trough the woods</div>
+                            </div>
+                            </div>
+            <div class="conquista">
+                <audio src="musics/OST 8 - Pacrush.mp3" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 8 - PacRush</div>
+                </div>
+             </div>
+             <div class="conquista">
+                <audio src="musics/OST 9 - Mecânicas - Nightmare.mp3" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 9 - Mecânicas - Nightmare</div>
+                </div>
+             </div>
+             <div class="conquista">
+                <audio src="musics/OST 10 - Teste de KI.aac" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 10 - Teste de KI</div>
+                </div>
+             </div>
+             <div class="conquista">
+                <audio src="musics/OST 11 - The glow in your eyes.mpeg" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 11 - The glow in your eyes</div>
+                </div>
+             </div>
+             <div class="conquista">
+                <audio src="musics/OST 12 - Geist Party.mp3" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 12 - Geist Party</div>
+                </div>
+             </div>
+             <div class="conquista">
+                <audio src="musics/OST 13 - Pajitnov in deep unconscious.mp3" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 13 - Pajitnov in deep unconscious</div>
+                </div>
+             </div>
+             <div class="conquista">
+                <audio src="musics/OST 14 - Terrific.mp3" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 14 - Terrific</div>
+                </div>
+             </div>
+             <div class="conquista">
+                <audio src="musics/OST 15 - The Lore Master.mp3" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 15 - The Lore Master</div>
+                </div>
+             </div>
+             <div class="conquista">
+                <audio src="musics/OST 16 - Um lugar misterioso.mp3" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 16 - Um lugar misterioso</div>
+                </div>
+             </div>
+             <div class="conquista">
+                <audio src="musics/OST 17 - Megalochaos.mp3" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 17 - Megalochaos</div>
+                </div>
+             </div>
+             <div class="conquista">
+                <audio src="musics/OST 18 - Apocalypse" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 18 - Apocalypse</div>
+                </div>
+             </div>
+             <div class="conquista">
+                <audio src="musics/OST 19 - Um passado sombrio.mp3" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 17 - Um passado sombrio</div>
+                </div>
+             </div>
+             <div class="conquista">
+                <audio src="musics/OST 20 - A história não contada.mp3" controls class="conquista-audio"></audio>
+                <div class="conquista-texto">
+                    <div class="conquista-titulo">OST 20 - A história não contada</div>
+                </div>
+             </div>
+
+        <script>
+    // JavaScript para destacar as conquistas ao passar o mouse
+    const conquistas = document.querySelectorAll('.conquista');
+
+    conquistas.forEach(conquista => {
+        conquista.addEventListener('mouseover', () => {
+            conquista.style.opacity = '0.7';
+        });
+
+        conquista.addEventListener('mouseout', () => {
+            conquista.style.opacity = '1';
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+    // Seleciona todas as conquistas
+    const conquistas = document.querySelectorAll('.conquista');
+
+    // Adiciona um evento de clique para cada conquista
+    conquistas.forEach(conquista => {
+        // Seleciona o carrossel dentro da conquista
+        const carrossel = conquista.querySelector('.carrossel');
+        // Inicializa o índice atual da imagem como 0
+        let indiceAtual = 0;
+
+        // Adiciona um evento de clique para o carrossel
+        carrossel.addEventListener('click', function () {
+            // Incrementa o índice atual
+            indiceAtual++;
+
+            // Verifica se o índice ultrapassou o número de imagens
+            if (indiceAtual >= carrossel.children.length) {
+                // Volta ao início do carrossel
+                indiceAtual = 0;
+            }
+
+            // Oculta todas as imagens
+            carrossel.querySelectorAll('img').forEach(img => {
+                img.style.display = 'none';
+            });
+
+            // Exibe a próxima imagem
+            carrossel.children[indiceAtual].style.display = 'block';
+        });
+    });
+});
+    
+    </script>
+
+</body>
+</html>

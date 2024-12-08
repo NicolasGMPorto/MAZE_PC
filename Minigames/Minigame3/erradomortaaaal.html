@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: black; /* Cor de fundo preta */
+            color: white; /* Cor do texto branco */
+        }
+
+        .gameover-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em; /* Tamanho grande para o título */
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px #000; /* Sombra de texto para um efeito assustador */
+        }
+
+        p {
+            font-size: 1.5em; /* Tamanho grande para o texto */
+        }
+
+        button {
+            font-size: 1.2em; /* Tamanho grande para os botões */
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: red; /* Cor vermelha para os botões */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 10px; /* Arredonda as pontas dos botões */
+        }
+
+        button:hover {
+            background-color: darkred; /* Cor mais escura ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="gameover-container">
+        <h1>Game Over</h1>
+        <p>Você perdeu!</p>
+        <button onclick="restartGame()">Reiniciar Jogo</button>
+        <button onclick="returnToHome()">Retornar à Página Inicial</button>
+    </div>
+
+    <script>
+        function restartGame() {
+            // Redirecionar para a página inicial do jogo
+            window.location.href = "../Minigame3.html";
+        }
+
+        function returnToHome() {
+            // Redirecionar para a página inicial do site
+            window.location.href = "../../secret.html";
+        }
+    </script>
+</body>
+</html>

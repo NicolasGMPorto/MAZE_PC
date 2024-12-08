@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightmare Quiz</title>
+    <link rel="stylesheet" href="space.css">
+    <link rel="stylesheet" href="quizNM.css">
+</head>
+<body>
+
+    <audio id="mainAudio" src="../musics/OST 10 - Teste de KI.aac" autoplay loop style="display: none;"></audio>
+
+    <div>
+        <header>
+            <h2 class="titulo">2° - Em que ano os humanos foram para Marte ?</h2>
+        </header>
+        </div>
+    <div class="container">
+        <canvas  id="board"></canvas>
+</div>
+    <footer>
+        <nav>
+        <ul>
+            <li><a href="pergunta2NM.html" class="option">2060</a></li>
+            <li><a href="erradomortaaaal.html" class="option">2030</a></li>
+            <li><a href="erradomortaaaal.html" class="option">2075</a></li>
+            <li><a href="erradomortaaaal.html" class="option">2050</a></li>
+        </ul>
+        </nav>
+    </footer>
+    <script>
+
+document.querySelectorAll('.option').forEach((option, index) => {
+            setTimeout(() => {
+                option.classList.add('option');
+            }, 500 * index);
+        });
+
+
+// tabuleiro
+let tileSize = 32;
+let rows = 16;
+let columns = 16;
+
+let board;
+let boardWidth = tileSize * columns; // 32 * 16
+let boardHeight = tileSize * rows; // 32 * 16
+let context;
+
+// nave
+let shipWidth = tileSize * 2;
+let shipHeight = tileSize;
+let shipX = tileSize * columns / 2 - tileSize;
+let shipY = tileSize * rows - tileSize * 2;
+
+let ship = {
+    x: shipX,
+    y: shipY,
+    width: shipWidth,
+    height: shipHeight
+}
+
+let shipImg;
+let shipVelocityX = tileSize; // velocidade de movimento da nave
+
+// aliens
+let alienArray = [];
+let alienWidth = tileSize * 2;
+let alienHeight = tileSize;
+let alienX = tileSize;
+let alienY = tileSize;
+let alienImg;
+
+let alienRows = 2;
+let alienColumns = 3;
+let alienCount = 0; // número de aliens a serem derrotados
+let alienVelocityX = 1.5; // velocidade de movimento dos aliens
+
+// tiros
+let bulletArray = [];
+let bulletVelocityY = -10; // velocidade de movimento dos tiros
+
+let score = 0;
+let gameOver = false;
+
+window.onload = function () {
+    board = document.getElementById("board");
+    board.width = boardWidth;
+    board.height = boardHeight;
+    context = board.getContext("2d"); // usado para desenhar no tabuleiro
+
+    // Verificar se o contexto está inicializado corretamente
+    if (context) {
+        console.log("Contexto do canvas inicializado com sucesso");
+    } else {
+        console.error("Falha ao inicializar o contexto do canvas");
+        return;
+    }
+
+    // Carregar imagens
+    shipImg = new Image();
+    shipImg.src = "Images/ship.png";
+    shipImg.onload = function () {
+        console.log("Imagem da nave carregada");
+        context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
+    }
+    shipImg.onerror = function () {
+        console.error("Falha ao carregar a imagem da nave");
+    }
+
+    alienImg = new Image();
+    alienImg.src = "Images/alien-magenta.png";
+    alienImg.onload = function () {
+        console.log("Imagem do alien carregada");
+        createAliens();
+        requestAnimationFrame(update);
+    }
+    alienImg.onerror = function () {
+        console.error("Falha ao carregar a imagem do alien");
+    }
+
+    document.addEventListener("keydown", moveShip);
+    document.addEventListener("keydown", shoot); // Mudado para keydown
+}
+
+function update() {
+    if (gameOver) {
+        context.fillStyle = "red";
+        context.font = "32px courier";
+        context.fillText("Game Over", boardWidth / 2 - 80, boardHeight / 2);
+        setTimeout(function() {
+                    window.location.href = ""; // Redireciona para outra página
+                }, 1000);
+        return;
+    }
+
+    requestAnimationFrame(update);
+
+    context.clearRect(0, 0, board.width, board.height);
+
+    // nave
+    context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
+
+    // aliens
+    for (let i = 0; i < alienArray.length; i++) {
+        let alien = alienArray[i];
+        if (alien.alive) {
+            alien.x += alienVelocityX;
+
+            // se o alien tocar nas bordas
+            if (alien.x + alien.width >= board.width || alien.x <= 0) {
+                alienVelocityX *= -1;
+                alien.x += alienVelocityX * 2;
+
+                // mover todos os aliens para baixo uma linha
+                for (let j = 0; j < alienArray.length; j++) {
+                    alienArray[j].y += alienHeight;
+                }
+            }
+            context.drawImage(alienImg, alien.x, alien.y, alien.width, alien.height);
+
+            if (alien.y >= ship.y) {
+                gameOver = true;
+            }
+        }
+    }
+
+    // tiros
+    for (let i = 0; i < bulletArray.length; i++) {
+        let bullet = bulletArray[i];
+        bullet.y += bulletVelocityY;
+        context.fillStyle = "white";
+        context.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+
+        // colisão dos tiros com os aliens
+        for (let j = 0; j < alienArray.length; j++) {
+            let alien = alienArray[j];
+            if (!bullet.used && alien.alive && detectCollision(bullet, alien)) {
+                bullet.used = true;
+                alien.alive = false;
+                alienCount--;
+                score += 100;
+            }
+        }
+    }
+
+    // limpar tiros
+    while (bulletArray.length > 0 && (bulletArray[0].used || bulletArray[0].y < 0)) {
+        bulletArray.shift(); // remove o primeiro elemento do array
+    }
+
+    // próximo nível
+    if (alienCount == 0) {
+        // aumentar o número de aliens em colunas e linhas em 1
+        score += alienColumns * alienRows * 100; // pontos bônus :)
+        alienColumns = Math.min(alienColumns + 1, columns / 2 - 2); // limitar em 16/2 - 2 = 6
+        alienRows = Math.min(alienRows + 1, rows - 4); // limitar em 16-4 = 12
+        if (alienVelocityX > 0) {
+            alienVelocityX += 0.2; // aumentar a velocidade de movimento dos aliens para a direita
+        } else {
+            alienVelocityX -= 0.2; // aumentar a velocidade de movimento dos aliens para a esquerda
+        }
+        alienArray = [];
+        bulletArray = [];
+        createAliens();
+    }
+
+    // pontuação
+    context.fillStyle = "white";
+    context.font = "16px courier";
+    context.fillText(score, 5, 20);
+}
+
+function moveShip(e) {
+    if (gameOver) {
+        return;
+    }
+
+    if (e.code == "ArrowLeft" && ship.x - shipVelocityX >= 0) {
+        ship.x -= shipVelocityX; // mover para a esquerda um tile
+    } else if (e.code == "ArrowRight" && ship.x + shipVelocityX + ship.width <= board.width) {
+        ship.x += shipVelocityX; // mover para a direita um tile
+    }
+}
+
+function createAliens() {
+    for (let c = 0; c < alienColumns; c++) {
+        for (let r = 0; r < alienRows; r++) {
+            let alien = {
+                img: alienImg,
+                x: alienX + c * alienWidth,
+                y: alienY + r * alienHeight,
+                width: alienWidth,
+                height: alienHeight,
+                alive: true
+            }
+            alienArray.push(alien);
+        }
+    }
+    alienCount = alienArray.length;
+}
+
+function shoot(e) {
+    if (gameOver) {
+        return;
+    }
+
+    if (e.code == "Space") {
+        // disparar
+        let bullet = {
+            x: ship.x + shipWidth * 15 / 32,
+            y: ship.y,
+            width: tileSize / 8,
+            height: tileSize / 2,
+            used: false
+        }
+        bulletArray.push(bullet);
+    }
+}
+
+function detectCollision(a, b) {
+    return a.x < b.x + b.width &&   // o canto superior esquerdo de a não alcança o canto superior direito de b
+        a.x + a.width > b.x &&   // o canto superior direito de a passa o canto superior esquerdo de b
+        a.y < b.y + b.height &&  // o canto superior esquerdo de a não alcança o canto inferior esquerdo de b
+        a.y + a.height > b.y;    // o canto inferior esquerdo de a passa o canto superior esquerdo de b
+}
+
+
+    </script>
+</body>
+</html>
